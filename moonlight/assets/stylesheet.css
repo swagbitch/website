@@ -120,8 +120,8 @@ body {
 	font-size: 100%;
 	min-height: 100vh;
 	height: 100%;
-	color: #232222
-	background-color: lightblue;
+	color: #232222;
+	background-color: black;
 
 }
 .smartLink-container {
@@ -163,16 +163,16 @@ body {
 	line-height: 2.3em
 }
 .smartLink-button:hover .smartLink-icon, .smartLink-button:hover .smartLink-icon-spotifyIcon, .smartLink-button:hover .smartLink-icon-itunesIcon, .smartLink-button:hover .smartLink-icon-deezerIcon, .smartLink-button:hover .smartLink-icon-youtubeIcon, .smartLink-button:hover .smartLink-icon-soundcloudIcon, .smartLink-button:hover .smartLink-icon-appleMusicIcon {
-	background-position-y: 0px
+	background-position-y: -24px
 }
 .smartLink-icon, .smartLink-icon-spotifyIcon, .smartLink-icon-itunesIcon, .smartLink-icon-deezerIcon, .smartLink-icon-youtubeIcon, .smartLink-icon-soundcloudIcon, .smartLink-icon-appleMusicIcon {
 	width: 22px;
 	height: 22px;
-	background-image: url(https://nausea.me/assets/icon/sprite2.png);
+	background-image: url(https://nausea.me/moonlight/assets/icons/sprite3.png);
 	background-size: auto 46px;
 	margin-right: 3px;
 	margin-left: -15px;
-	background-position-y: -24px;
+	background-position-y: 0px;
 	position: relative;
 	display: inline-block;
 	vertical-align: middle
