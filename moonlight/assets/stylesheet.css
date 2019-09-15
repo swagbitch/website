@@ -120,7 +120,7 @@ body {
 	font-size: 100%;
 	min-height: 100vh;
 	height: 100%;
-	color: #232222;
+	color: #ffffff;
 	background-color: black;
 
 }
@@ -148,12 +148,12 @@ body {
 }
 .smartLink-button {
 	padding: 5px;
-	border: 1px solid #232222;
+	border: 1px solid #ffffff;
 	display: block;
 	margin-bottom: 10px;
 	text-align: center;
 	text-decoration: none;
-	color: #232222;
+	color: #ffffff;
 	text-transform: uppercase
 }
 .smartLink-button-text {
