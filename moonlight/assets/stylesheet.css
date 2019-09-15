@@ -1,3 +1,113 @@
+.typography-nav {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-h1 {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-h2, .smartLink-title {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-h3 {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-p {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-largeTag {
+	font-family: "Akkurat-Mono", Helvetica, Arial, sans-serif;
+	font-size: 24px
+}
+.typography-title {
+	font-family: "Akkurat-Mono", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: 400
+}
+.typography-caseTag, .smartLink-subtitle, .smartLink-button {
+	font-family: "Akkurat-Mono", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-caseTitle {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-caseView-title {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-caseView-tag {
+	font-family: "Akkurat-Mono", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	font-style: normal
+}
+.typography-caseView-specs {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	font-style: normal
+}
+@media all and (max-width: 768px) {
+	.typography-nav {
+		font-size: 14px
+	}
+}
+@font-face {
+	font-family: "DIN";
+	src: url(/assets/DIN-Regular-5038127e021a83c57f5ce3f859c4f3c68033cb4b4f3b35a2fd553e472a6581dd.woff2) format("woff2"), url(/assets/DIN-Regular-6ac87054e12457fbe23ae0cfa99ac5a04034c34b0c96555cce5ad294e74f85ba.woff) format("woff"), url(/assets/DIN-Regular-2bddc13e57c77a824eb922bafabc409c12b9bd5e2e0796a0a7eba7cc942ce471.ttf) format("truetype");
+	font-weight: 400;
+	font-style: normal
+}
+@font-face {
+	font-family: "DIN";
+	src: url(/assets/DIN-Light-f56946581e77092a7239f98a1ceca7db4adf5c5efecdfc256ef2bc3429171054.woff2) format("woff2"), url(/assets/DIN-Light-4568dcdabf1fe9f248d1dc56104f2057200dba7d417c354daa6fa3a0b72967ac.woff) format("woff"), url(/assets/DIN-Light-6773a2535333091d686d590b1f55e9933cb44e69e833ea4e624b77d2632c0e16.ttf) format("truetype");
+	font-weight: 300;
+	font-style: normal
+}
+@font-face {
+	font-family: "DIN";
+	src: url(/assets/DIN-Bold-3be92c00a57a7c8a15a920f11459c8ccc3c1f67b84e7da272a36118027c0c8d5.woff2) format("woff2"), url(/assets/DIN-Bold-867ebc954b8e6082ee9e9da4497a1fe72fa23895b08d5b7ac5b47018468942ce.woff) format("woff"), url(/assets/DIN-Bold-25b881f08b2fdecd986573f8ffd4f456501f7640b546c5aa52ad9a2ea3940460.ttf) format("truetype");
+	font-weight: 700;
+	font-style: normal
+}
+@font-face {
+	font-family: "DIN";
+	src: url(/assets/DIN-Medium-1e3662ae11818e4ff96832135fec3c2f94df829c5165658aee3c3e00ce787ef5.woff2) format("woff2"), url(/assets/DIN-Medium-5e10e479f9f9055b0476896aebf6690c8f1f7356be347dd78781d033597206ed.woff) format("woff"), url(/assets/DIN-Medium-d4272617be8a6372c3d124f871aefc0782e34bd7e7b8c3b14c90b04e20872aca.ttf) format("truetype");
+	font-weight: 600;
+	font-style: normal
+}
+@font-face {
+	font-family: "DIN";
+	src: url(/assets/DIN-Black-d4c32fd1890c6d604297d3ceb620384b15512a75893725ffd1c0ef296a4f1353.woff2) format("woff2"), url(/assets/DIN-Black-ac467264cad8f16b470783559396133dd1e25ba19be78b660cc5b227f4c481eb.woff) format("woff"), url(/assets/DIN-Black-17b1a4f3cbba9c08b57cada8802448eda4516a8e8c3f3a47a89ca24cc2488491.ttf) format("truetype");
+	font-weight: 900;
+	font-style: normal
+}
+@font-face {
+	font-family: "Akkurat-Mono";
+	src: url(/assets/Akkurat-Mono-9ceb9f7a05366b1ad72e2f5b2427d4ec72a037b380174fc259ddf385d687711f.woff2) format("woff2"), url(/assets/Akkurat-Mono-ec86bbeecccb012e57f8b349ef0bf66b3d11b66a63429a59ec057cd4fb09de25.woff) format("woff"), url(/assets/Akkurat-Mono-001764d34192bd9ef7bb1776c0f79e4e3e6f09216c683f3c044dd695f671e399.ttf) format("truetype");
+	font-weight: normal;
+	font-style: normal
+}
 html, body {
 	margin: 0;
 	padding: 0;
