@@ -1,0 +1,16 @@
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	overflow: auto
+}
+body {
+	font-family: "DIN", Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	min-height: 100vh;
+	height: 100%;
+	color: #ffffff;
+	background-color: black;
+}
