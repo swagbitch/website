@@ -4,13 +4,10 @@ html, body {
 	padding: 0;
 	position: relative;
 	width: 100%;
-	overflow: auto
+	overflow: hidden;
 }
 body {
-	font-family: "DIN", Helvetica, Arial, sans-serif;
-	font-size: 100%;
 	min-height: 100vh;
 	height: 100%;
-	color: #ffffff;
 	background-color: black;
 }
