@@ -24,32 +24,6 @@
 	var imgwid = 450;
 	var imghgt = 360;
 
-	content = ('<html><head><title>Email Extractor Lite : Help<\/title>');
-	content += ('<STYLE TYPE="text/css">');
-	content += ('BODY,td,th,ul,p       { font: normal normal normal 8pt/1em Verdana; color: #000; }');
-	content += ('<\/STYLE>');
-	content += ('<\/head><body onload="window.focus();">');
-	content += ('<B>Quick and dirty<\/B>');
-	content += ('<OL>');
-	content += ('<LI>Copy all text from any webpages, documents, files, etc...');
-	content += ('<LI>Paste it into <B>Input Window<\/B>.');
-	content += ('<LI>Click "<I>Extract<\/I>" button.');
-	content += ('<LI>Copy the result from <B>Output Window<\/B> to somewhere and save it.');
-	content += ('<LI>Click "<I>Reset<\/I>" button to start all over again.');
-	content += ('<\/OL>');
-	content += ('<P><B>More Controls<\/B>');
-	content += ('<OL>');
-	content += ('<LI>Click "<I>Paste Input<\/I>" link to paste any text you copied elsewhere into <B>Input Window<\/B>.');
-	content += ('<LI>Click "<I>Copy Output<\/I>" link to copy whatever text inside <B>Output Window<\/B>.');
-	content += ('<LI>Choose different separator from the dropdown menu or specify your own. Default is comma.');
-	content += ('<LI>You can group a number of emails together. Each group is separated by a new line. Please enter number only.');
-	content += ('<LI>Check "<I>Sort Alphabetically<\/I>" checkbox to arrange extracted emails well... alphabetically.');
-	content += ('<LI>You can extract or exclude emails containing certain string (text). Useful if you only want to get email from a particular domain.');
-	content += ('<LI>You can choose to extract web addresses instead of email addresses.');
-	content += ('<\/OL>');
-	content += ('<DIV ALIGN="CENTER"><INPUT TYPE="button" VALUE="Close" onClick="javascript:window.close();"><\/DIV>');
-	content += ('<\/body><\/html>');
-
 	var winl = (screen.width - imgwid) / 2;
 	var wint = (screen.height - imghgt) / 2;
 	helpwindow = window.open('','help','width=' + imgwid + ',height=' + imghgt + ',resizable=0,scrollbars=0,top=' + wint + ',left=' + winl + ',toolbar=0,location=0,directories=0,status=0,menubar=0,copyhistory=0');
