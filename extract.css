@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "pixel";
+    src: url("https://nausea.me/web/fonts/pixel.ttf") format("truetype"); 
+}
+
+body {
+    font-family: "pixel";
+    -webkit-user-select: none;       
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+p {
+    font-size: 10px;
+    color: #ffffff;
+    margin: 5px;
+    padding: 1px;
+}
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    background: url(https://thumbs.gfycat.com/SourImpressiveEel-small.gif) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+#min {
+    min-width: 200px;
+    min-height: 100px;
+}
