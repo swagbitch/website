@@ -1,0 +1,288 @@
+<html><head>
+<link href="web/css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" async="" src=""></script><script type="text/javascript" async="" src=""></script><script async="" src="" type="text/javascript">
+	</script>
+	<script async="" src="" type="text/javascript">
+	</script>
+	<script language="JAVASCRIPT" type="text/javascript">
+	<!-- Begin
+
+	function copy() {
+	textRange = document.extractor.output.createTextRange();
+	textRange.execCommand("RemoveFormat");
+	textRange.execCommand("Copy");
+	}
+
+	function paste() {
+	textRange = document.extractor.input.createTextRange();
+	textRange.execCommand("RemoveFormat");
+	textRange.execCommand("Paste");
+	}
+
+	function help(){
+
+	var imgwid = 450;
+	var imghgt = 360;
+
+	content = ('<html><head><title>Email Extractor Lite : Help<\/title>');
+	content += ('<STYLE TYPE="text/css">');
+	content += ('BODY,td,th,ul,p       { font: normal normal normal 8pt/1em Verdana; color: #000; }');
+	content += ('<\/STYLE>');
+	content += ('<\/head><body onload="window.focus();">');
+	content += ('<B>Quick and dirty<\/B>');
+	content += ('<OL>');
+	content += ('<LI>Copy all text from any webpages, documents, files, etc...');
+	content += ('<LI>Paste it into <B>Input Window<\/B>.');
+	content += ('<LI>Click "<I>Extract<\/I>" button.');
+	content += ('<LI>Copy the result from <B>Output Window<\/B> to somewhere and save it.');
+	content += ('<LI>Click "<I>Reset<\/I>" button to start all over again.');
+	content += ('<\/OL>');
+	content += ('<P><B>More Controls<\/B>');
+	content += ('<OL>');
+	content += ('<LI>Click "<I>Paste Input<\/I>" link to paste any text you copied elsewhere into <B>Input Window<\/B>.');
+	content += ('<LI>Click "<I>Copy Output<\/I>" link to copy whatever text inside <B>Output Window<\/B>.');
+	content += ('<LI>Choose different separator from the dropdown menu or specify your own. Default is comma.');
+	content += ('<LI>You can group a number of emails together. Each group is separated by a new line. Please enter number only.');
+	content += ('<LI>Check "<I>Sort Alphabetically<\/I>" checkbox to arrange extracted emails well... alphabetically.');
+	content += ('<LI>You can extract or exclude emails containing certain string (text). Useful if you only want to get email from a particular domain.');
+	content += ('<LI>You can choose to extract web addresses instead of email addresses.');
+	content += ('<\/OL>');
+	content += ('<DIV ALIGN="CENTER"><INPUT TYPE="button" VALUE="Close" onClick="javascript:window.close();"><\/DIV>');
+	content += ('<\/body><\/html>');
+
+	var winl = (screen.width - imgwid) / 2;
+	var wint = (screen.height - imghgt) / 2;
+	helpwindow = window.open('','help','width=' + imgwid + ',height=' + imghgt + ',resizable=0,scrollbars=0,top=' + wint + ',left=' + winl + ',toolbar=0,location=0,directories=0,status=0,menubar=0,copyhistory=0');
+	helpwindow.document.write(content);
+	helpwindow.document.close();
+	}
+
+	function checksep(value){
+	if (value) document.extractor.sep.value = "other";
+	}
+
+	function numonly(value){
+	if (isNaN(value)) {
+	   window.alert("Please enter a number or else \nleave blank for no grouping.");
+	   document.extractor.groupby.focus();
+	}
+	}
+
+	function findEmail() {
+	var email = "none";
+	var a = 0;
+	var ingroup = 0;
+	var separator = document.extractor.sep.value;
+	var string = document.extractor.string.value;
+	var groupby = Math.round(document.extractor.groupby.value);
+	var address_type = document.extractor.address_type.value;
+	var input = document.extractor.input.value;
+
+	if (document.extractor.lowcase.checked) {
+	   var input = input.toLowerCase();
+	}
+
+	if (separator == "new") separator = "\n";
+	if (separator == "other") separator = document.extractor.othersep.value;
+
+	if (address_type == "web") {
+	   rawemail = input.match(/(http:\/\/+[a-zA-Z0-9]+[a-zA-Z0-9-]+\.[a-zA-Z0-9._/-]+)/gi);
+	} else {
+	   rawemail = input.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+	}
+
+	var norepeat = new Array();
+	var filtermail = new Array();
+	if (rawemail) {
+	   if (string){
+	       x = 0;
+	       for (var y=0; y<rawemail.length; y++) {
+	           if (document.extractor.filter_type.value == 1) {
+	               if (rawemail[y].search(string) >= 0) {
+	                   filtermail[x] = rawemail[y];
+	                   x++;
+	               }
+	           } else {
+	               if (rawemail[y].search(string) < 0) {
+	                   filtermail[x] = rawemail[y];
+	                   x++;
+	               }
+	           }
+	       }
+	       rawemail = filtermail;
+	   }
+
+	   for (var i=0; i<rawemail.length; i++) {
+	       var repeat = 0;
+	       
+	       // Check for repeated emails routine
+	       for (var j=i+1; j<rawemail.length; j++) {
+	           if (rawemail[i] == rawemail[j]) {
+	               repeat++;
+	           }
+	       }
+	       
+	       // Create new array for non-repeated emails
+	       if (repeat == 0) {
+	           norepeat[a] = rawemail[i];
+	           a++;
+	       }
+	   }
+	   if (document.extractor.sort.checked) norepeat = norepeat.sort(); // Sort the array
+	   email = "";
+	   // Join emails together with separator
+	   for (var k = 0; k < norepeat.length; k++) {
+	       if (ingroup != 0) email += separator;
+	       email += norepeat[k];
+	       ingroup++;
+	       
+	       // Group emails if a number is specified in form. Each group will be separate by new line.
+	       if (groupby) {
+	           if (ingroup == groupby) {
+	               email += '\n\n';
+	               ingroup = 0;
+	           }
+	       }
+	   }
+	}
+
+	// Return array length
+	var count = norepeat.length;
+
+	// Print results
+	document.extractor.count.value = count;
+	document.extractor.output.value = email;
+	}
+	//  End -->
+	</script>
+	<style type="text/css">
+	@font-face {
+    font-family: "pixel";
+	src: url("https://nausea.me/web/fonts/pixel.ttf") format("truetype") }
+	BODY,td,th,ul,p       { font: normal normal normal 8pt/1em pixel; color: #000; }
+	textarea,input,select { font: normal normal normal 8pt/1em pixel; color: #000; background:#fff}
+	A:link, A:visited     { text-decoration: none; color: #fff; }
+	A:active, A:hover     { text-decoration: underline; color: #fff; }
+	fieldset              { padding-left: 10px; padding-bottom: 10px; }
+	.bordercolor          { background:#fff }
+	.maincolor            { background:#747474 }
+	.button               { background:#fff }
+	.titlebarcolor        { background:#FFF}
+	.titlefont            { font: normal normal bold 9pt/1em pixel; color: #fff; }
+	.copyrightfont        { font: normal normal normal 7.5pt/1.5em pixel; color: #fff; }
+	</style>
+	<title align="centre">Email Extractor</title>
+<body>
+	<table align="center" border="0" width="100%">
+		</td>
+				<td align="left" valign="top">
+					<br>
+					<script async="" src="">
+					</script> <!-- lite14 top -->
+					<ins class="adsbygoogle" data-ad-client="ca-pub-9816945270938969" data-ad-format="auto" data-ad-slot="7663452270" data-full-width-responsive="true" style="display:block"></ins> 
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script><br>
+					<div align="center">
+						<form id="extractor" name="extractor">
+							<table border="0" cellpadding="1" cellspacing="0" class="bordercolor">
+								<tbody>
+									<tr>
+										<td>
+											<table border="0" cellpadding="4" cellspacing="0" class="maincolor">
+												<tbody>
+													<tr class="titlebarcolor" valign="middle">
+														<td align="right">Email<br></td>
+													  <td color="#FFFFFF" align="left">Extractor</td>												
+												  </tr>
+													<tr>
+														<td align="center" valign="top" width="50%">Input Window<br>														  <textarea cols="50" name="input" rows="8"></textarea></td>
+														<td align="center" valign="top" width="50%">Output Window<br>														  <textarea cols="50" name="output" readonly="" rows="8"></textarea></td>
+													</tr>
+													<tr>
+													  <td align="center" valign="top">
+														<script language="JavaScript" type="text/javascript">
+															<!--
+															if ((navigator.appName=="Microsoft Internet Explorer")&&(parseInt(navigator.appVersion)>=4)) document.write('<A HREF="#" onClick="paste();"><\/A>');
+															else document.write('');
+															// -->
+															</script>Paste Input</td>
+													  <td align="center" valign="top">
+														<script language="JavaScript" type="text/javascript">
+															<!--
+															if ((navigator.appName=="Microsoft Internet Explorer")&&(parseInt(navigator.appVersion)>=4)) document.write('<A HREF="#" onClick="copy();"><\/A>');
+															else document.write('');
+															// -->
+															</script>Copy Output</td>
+													</tr>
+													<tr>
+														<td align="left" colspan="2" valign="top">
+															<fieldset title="Output Option">
+																<legend align="left"><b>Output Option</b></legend><br>
+																Separator: <select name="sep">
+																	<option selected="" value=", ">
+																		Comma
+																	</option>
+																	<option value="|">
+																		Pipe
+																	</option>
+																	<option value=" : ">
+																		Colon
+																	</option>
+																	<option value="new">
+																		New Line
+																	</option>
+																	<option value="other">
+																		Other
+																	</option>
+																</select> <input name="othersep" onblur="checksep(this.value);" size="3" type="text"> &nbsp;&nbsp; Group: <input name="groupby" onblur="numonly(this.value);" size="3" type="text"> Addresses &nbsp;&nbsp; <label for="sortbox"><input id="sortbox" name="sort" type="checkbox">Sort Alphabetically</label> &nbsp;&nbsp; <label for="casebox"><input checked="" id="casebox" name="lowcase" type="checkbox">To Lowercase?</label>
+															</fieldset><br>
+															<fieldset title="Filter Option">
+																<legend align="left"><b>Filter Option</b></legend><br>
+																<select name="filter_type">
+																	<option selected="" value="1">
+																		Only
+																	</option>
+																	<option value="0">
+																		Do not
+																	</option>
+																</select> extract address containing this string: <input name="string" size="20" type="text"><br>
+																<br>
+																Type of address to extract: <select name="address_type">
+																	<option selected="" value="email">
+																		Email
+																	</option>
+																	<option value="web">
+																		Web
+																	</option>
+																</select>
+															</fieldset>
+														</td>
+													</tr>
+													<tr>
+														<td align="left" valign="top">
+															<input class="button" onclick="findEmail();" type="button" value="Extract"> <input class="button" type="reset" value="Reset">&nbsp;&nbsp;&nbsp; <a href="#" onclick="help();"><i>Need help?</i></a>
+														</td>
+														<td align="right" nowrap="" valign="top">Counter: <input name="count" readonly="" size="5"></td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form><br>
+						<br>
+					</div><br>
+					<br>
+					<center><script src="web/js/jquery.min.js" type="text/javascript">
+</script>
+<audio id="bgAudio" preload="auto" autoplay="autoplay" loop="loop" >
+  <source src="web/music/i.mp3" type="audio/mp3">
+</audio>
+<script>
+var audio = document.getElementById("bgAudio");
+audio.volume = 0.05;
+</script>
+						
+</center></td></tr></tbody></table></body></html>
