@@ -41,7 +41,10 @@
       }
     })
   }
-})()</script></head><body><style>
+})()</script></head>
+
+<body>
+<style>
     body{
     background-image: url('https://i.imgur.com/1o2HdgU.gif');
     background-size: contain;
@@ -110,7 +113,56 @@
   90%{color: DodgerBlue;}
 	100%{color: orange;}
 }
+.main-div{
+    overflow: hidden;
+}
+.left-div {
+    background:green;
+    width:50%;
+    float:left;
+
+}
+.right-div {
+    background:blue;
+    width:50%;
+    float:right;
+}
 </style>
+
+<div class="main-div">
+<div align="center"> 
 <h1 class="rainbow" style="font-size: 200px">TROLOLOLOOLOOLOLOOLOL</h1>
 
+<script> 
+	  $(document).ready(function() {
+
+    $('#reset').hide();
+    $('#move').click(function() {
+        $('#left').animate({
+        'marginLeft' : "-=100%", //moves left
+        'marginTop' : "+=100%" //moves left
+        });
+        $('#right').animate({
+        'marginRight' : "-=100%", //moves right
+        'marginTop' : "+=100%" //moves left
+        });
+        $('#move').hide();
+        $('#reset').show();
+    });
+
+    $('#reset').click(function() {
+        $('#left').animate({
+        'marginLeft' : "+=100%", //moves left
+        'marginTop' : "-=100%" //moves left
+        });
+        $('#right').animate({
+        'marginRight' : "+=100%", //moves right
+        'marginTop' : "-=100%" //moves left
+        });
+        $('#reset').hide(); 
+        $('#move').show();
+    });
+
+
+})
 </body></html>
